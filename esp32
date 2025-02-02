@@ -1,0 +1,26 @@
+const int pins[] = {27, 25, 33, 21, 26, 23, 22, 12, 19, 13};
+const int numPins = 10;
+
+void setup() {
+
+  for (int i = 0; i < numPins; i++) {
+    pinMode(pins[i], OUTPUT);
+    digitalWrite(pins[i], LOW); 
+  }
+}
+
+void loop() {
+
+  for (int i = 0; i < numPins; i++) {
+    digitalWrite(pins[i], LOW);
+  }
+
+  int numLedsOn = random(1, numPins + 1);
+
+  for (int i = 0; i < numLedsOn; i++) {
+    int ledIndex = random(0, numPins);
+    digitalWrite(pins[ledIndex], HIGH);
+  }
+
+  delay(500);
+}
